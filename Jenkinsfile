@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        bat 'gradlew.bat build'
+        bat 'gradlew.bat clean'
       }
     }
     stage('Message') {
