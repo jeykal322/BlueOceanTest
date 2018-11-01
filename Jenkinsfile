@@ -7,10 +7,10 @@ pipeline {
       }
     }
     stage('Build') {
-        steps {
-            bat 'gradlew.bat build'
-            }
-        }
+      steps {
+        bat 'gradlew.bat build'
+      }
+    }
     stage('Run Tests') {
       steps {
         bat 'gradlew.bat test'
@@ -19,8 +19,10 @@ pipeline {
   }
   post {
     always {
-        archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
-        junit 'build/reports/**/*.xml'
+      archiveArtifacts(artifacts: 'build/libs/**/*.jar', fingerprint: true)
+      junit 'build/reports/**/*.xml'
+
     }
+
   }
 }
