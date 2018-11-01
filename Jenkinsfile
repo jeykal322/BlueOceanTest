@@ -6,10 +6,9 @@ pipeline {
         echo 'Trial'
       }
     }
-    stage('Execute script') {
+    stage('Execute Script') {
       steps {
-        sh '''gradlew.bat test
-'''
+        bat 'gradlew.bat test'
       }
     }
   }
