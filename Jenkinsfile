@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Execute script') {
       steps {
-        sh '''./gradlew
+        sh '''gradlew.bat test
 '''
       }
     }
