@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        bat 'gradlew.bat build'
+        bat 'gradlew.bat compileJava'
       }
     }
     stage('Run Tests') {
