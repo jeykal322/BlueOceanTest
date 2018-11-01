@@ -8,7 +8,8 @@ pipeline {
     }
     stage('Execute script') {
       steps {
-        sh './gradlew.sh'
+        sh '''./gradlew
+'''
       }
     }
   }
