@@ -6,7 +6,12 @@ pipeline {
         echo 'Trial'
       }
     }
-    stage('Execute Script') {
+    stage('Build') {
+        steps {
+            bat 'gradlew.bat build'
+            }
+        }
+    stage('Run Tests') {
       steps {
         bat 'gradlew.bat test'
       }
@@ -14,6 +19,7 @@ pipeline {
   }
   post {
     always {
+        archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
         junit 'build/reports/**/*.xml'
     }
   }
