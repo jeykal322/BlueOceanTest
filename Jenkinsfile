@@ -6,5 +6,10 @@ pipeline {
         echo 'Trial'
       }
     }
+    stage('Execute Batch') {
+      steps {
+        bat 'gradlew,bat'
+      }
+    }
   }
 }
