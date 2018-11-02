@@ -24,8 +24,9 @@ pipeline {
   }
   post {
     always {
+       steps {
       junit 'build/test-results/**/TEST*.xml'
-
+        }
     }
 
   }
