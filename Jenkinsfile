@@ -8,7 +8,7 @@ pipeline {
             echo 'Trial'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             echo 'pls no'
           }
@@ -22,12 +22,12 @@ pipeline {
             bat 'gradlew.bat compileJava'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             bat 'gradlew.bat compileJava'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             echo 'asd'
           }
@@ -41,19 +41,19 @@ pipeline {
             bat 'gradlew.bat test'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             bat 'gradlew.bat build'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             echo 'awawaw'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
-            timeout(time: 3) {
+            timeout(time: 10) {
               echo 'Time limit was reached and this should fail'
             }
 
