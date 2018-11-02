@@ -2,18 +2,63 @@ pipeline {
   agent any
   stages {
     stage('Message') {
-      steps {
-        echo 'Trial'
+      parallel {
+        stage('Message') {
+          steps {
+            echo 'Trial'
+          }
+        }
+        stage('') {
+          steps {
+            echo 'pls no'
+          }
+        }
       }
     }
     stage('Build') {
-      steps {
-        bat 'gradlew.bat compileJava'
+      parallel {
+        stage('Build') {
+          steps {
+            bat 'gradlew.bat compileJava'
+          }
+        }
+        stage('') {
+          steps {
+            bat 'gradlew.bat compileJava'
+          }
+        }
+        stage('') {
+          steps {
+            echo 'asd'
+          }
+        }
       }
     }
     stage('Run Tests') {
-      steps {
-        bat 'gradlew.bat test'
+      parallel {
+        stage('Run Tests') {
+          steps {
+            bat 'gradlew.bat test'
+          }
+        }
+        stage('') {
+          steps {
+            bat 'gradlew.bat build'
+          }
+        }
+        stage('') {
+          steps {
+            echo 'awawaw'
+          }
+        }
+        stage('') {
+          steps {
+            timeout(time: 3) {
+              echo 'Time limit was reached and this should fail'
+            }
+
+          }
+        }
       }
     }
     stage('Archiving artifacts') {
@@ -47,6 +92,11 @@ pipeline {
             pwd(tmp: true)
           }
         }
+      }
+    }
+    stage('sleep') {
+      steps {
+        sleep(unit: 'MILLISECONDS', time: 500)
       }
     }
   }
