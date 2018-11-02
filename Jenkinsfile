@@ -18,15 +18,15 @@ pipeline {
     }
     stage('Archiving artifacts') {
       steps {
-        archiveArtifacts(artifacts: ‘**/*.jar’, fingerprint: true)
+        archiveArtifacts(artifacts: '**/*.jar', fingerprint: true)
       }
     }
   }
   post {
     always {
-       steps {
+      archiveArtifacts(artifacts: '**/*.jar', fingerprint: true)
       junit 'build/test-results/**/TEST*.xml'
-        }
+
     }
 
   }
