@@ -37,7 +37,7 @@ pipeline {
     }
     stage('Read my pipeline.log') {
       steps {
-        readFile 'pipeline.log'
+        readFile 'gradle/wrapper/gradle-wrapper.jar'
       }
     }
   }
