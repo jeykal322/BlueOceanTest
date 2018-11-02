@@ -1,6 +1,6 @@
 import org.junit.Test;
 
-public class AddTest{
+public class Tests {
 
     @Test
     public void AdditionTest() {
@@ -8,7 +8,7 @@ public class AddTest{
     }
 
     @Test
-    public void SubtractionTest() { assert 2 - 1 == 33; }
+    public void SubtractionTest() { assert 2 - 1 == 1; }
 
     @Test
     public void SubtractionTestTwo() { assert 2 - 1 == 1; }
