@@ -53,7 +53,7 @@ pipeline {
         }
         stage('error') {
           steps {
-            timeout(time: 10) {
+            timeout(time: 33) {
               echo 'Time limit was reached and this should fail'
             }
 
