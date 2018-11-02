@@ -36,13 +36,17 @@ pipeline {
       }
     }
     stage('Another msg') {
-      steps {
-        echo 'eh'
-      }
-    }
-    stage('Read my pipeline.log') {
-      steps {
-        readFile 'gradle/wrapper/gradle-wrapper.jar'
+      parallel {
+        stage('Another msg') {
+          steps {
+            echo 'eh'
+          }
+        }
+        stage('Something') {
+          steps {
+            pwd(tmp: true)
+          }
+        }
       }
     }
   }
