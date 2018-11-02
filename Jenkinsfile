@@ -16,6 +16,11 @@ pipeline {
         bat 'gradlew.bat test'
       }
     }
+    stage('Archiving artifacts') {
+      steps {
+        archiveArtifacts '*.log'
+      }
+    }
   }
   post {
     always {
