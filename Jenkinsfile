@@ -28,6 +28,11 @@ pipeline {
             bat 'gradlew.bat test'
           }
         }
+        stage('Build again') {
+          steps {
+            bat 'gradlew.bat build'
+          }
+        }
       }
     }
     stage('Another msg') {
