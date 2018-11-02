@@ -17,13 +17,27 @@ pipeline {
       }
     }
     stage('Archiving artifacts') {
-      steps {
-        archiveArtifacts(artifacts: '**/*.jar', fingerprint: true)
+      parallel {
+        stage('Archiving artifacts') {
+          steps {
+            archiveArtifacts(artifacts: '**/*.jar', fingerprint: true)
+          }
+        }
+        stage('Test again') {
+          steps {
+            bat 'gradlew.bat test'
+          }
+        }
       }
     }
     stage('Another msg') {
       steps {
         echo 'eh'
+      }
+    }
+    stage('Read my pipeline.log') {
+      steps {
+        readFile 'pipeline.log'
       }
     }
   }
