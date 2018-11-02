@@ -21,6 +21,11 @@ pipeline {
         archiveArtifacts(artifacts: '**/*.jar', fingerprint: true)
       }
     }
+    stage('Another msg') {
+      steps {
+        echo 'eh'
+      }
+    }
   }
   post {
     always {
